@@ -1,0 +1,26 @@
+name: Cloudflare Deploy
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  wrangler_action_self_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          # Pinned due to compatibility issues on 23.2.0
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install pnpm
+        run: npm i -g pnpm
+
+      - name: Install modules and build
+        run: pnpm run build

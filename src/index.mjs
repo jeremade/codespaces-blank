@@ -64,7 +64,7 @@ async function translation(env, from, to, content) {
 const translationRequest = z.object({
     from: z.string().length(2).default("en"),
     to: z.string().length(2).default("es"),
-    text: z.string().min(2).max(16384).default("")
+    text: z.string().min(2).max(16384).default("Welcome to the Siguiente translation API.")
 })
 
 /**

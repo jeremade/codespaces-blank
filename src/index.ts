@@ -28,7 +28,7 @@ export default {
 			apiKey: env.OPENAI_API_KEY
 		})
 
-		const input = await TranslationRequest.parseAsync(request.json())
+		const input = TranslationRequest.parse(await request.json())
 
 		const infer = await openai.beta.chat.completions.parse({
 			model: "gpt-4o",

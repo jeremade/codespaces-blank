@@ -1,6 +1,6 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "twilight-bird-5c35"
-main = "src/index.ts"
+name = "translate"
+main = ".build/index.js"
 compatibility_date = "2024-11-27"
 compatibility_flags = []
 

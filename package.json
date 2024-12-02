@@ -5,6 +5,7 @@
   "private": false,
   "license": "MIT",
   "scripts": {
+    "build": "bun build src/index.ts --outdir .build --format esm --minify",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev",
@@ -19,6 +20,7 @@
     "wrangler": "^3.60.3"
   },
   "dependencies": {
+    "bun": "^1.1.38",
     "openai": "^4.73.1",
     "zod": "^3.23.8"
   }

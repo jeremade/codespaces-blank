@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  wrangler_action_self_testing:
+  wrangler_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -29,3 +29,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build & Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

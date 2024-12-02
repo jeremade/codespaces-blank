@@ -29,8 +29,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+        
+      - name: Build Worker
+        run: pnpm build
 
-      - name: Build & Deploy Worker
+      - name: Deploy Worker
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

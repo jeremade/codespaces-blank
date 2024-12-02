@@ -1,8 +1,8 @@
 async function test() {
-    const res = await fetch("https://localhost:8787", {
+    const res = await fetch("https://translate.siguiente-cloud.workers.dev", {
         method: "POST",
         headers: {
-            "Content-type": "application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             text: "hola. im a walrus by the name of Fred."
@@ -12,4 +12,4 @@ async function test() {
     return res.json()
 }
 
-test().then(console.info)
+await test().then(console.info)

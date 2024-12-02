@@ -22,7 +22,7 @@ function text() {
 * @param {string} to
 * @param {string} content
 */
-async function translation(env, from, to, content) {
+function translation(env, from, to, content) {
     return fetch(new URL(env.OPENAI_ENDPOINT), {
         method: "POST",
         headers: {
@@ -61,24 +61,20 @@ async function translation(env, from, to, content) {
     })
 }
 
-const translationRequest = z.object({
-    from: z.string().length(2).default("en"),
-    to: z.string().length(2).default("es"),
-    text: z.string().min(2).max(16384).default("Welcome to the Siguiente translation API.")
-})
-
 /**
  * @type ExportedHandler<Env>
  */
 export default {
     async fetch(request, env) {
-        const { from, to, text } = translationRequest.parse(await request.json())
+        const { from = "en", to = "es", text = "Welcome to the Siguiente translation API." } = await request.json()
 
-        return translation(env, from, to, text)
+        const response = await translation(env, from, to, text)
             .then((res) => res.json())
             .then((res) => res.choices.at(0).message.content)
             .then(JSON.parse)
             .then(Response.json)
             .catch((error) => new Response(JSON.stringify({ error }), { status: 400 }))
+
+        return response
     }
 };

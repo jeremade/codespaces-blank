@@ -1,5 +1,3 @@
-import { z } from "./deps/zod.mjs"
-
 function text() {
     return {
         type: "object",

@@ -15,13 +15,9 @@
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.5.2",
     "@cloudflare/workers-types": "^4.20241127.0",
+    "bun": "^1.1.38",
     "typescript": "^5.5.2",
     "vitest": "2.0.5",
     "wrangler": "^3.60.3"
-  },
-  "dependencies": {
-    "bun": "^1.1.38",
-    "openai": "^4.73.1",
-    "zod": "^3.23.8"
   }
 }

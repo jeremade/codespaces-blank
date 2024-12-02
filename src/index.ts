@@ -11,7 +11,7 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-import { OpenAI } from "openai"
+import { OpenAI } from "./deps/openai.mjs"
 import { zodResponseFormat} from "openai/helpers/zod"
 import z from "zod"
 
@@ -33,46 +33,6 @@ const TranslationRequest = z.object({
 	to: Iso.default("es"),
 	text: Text
 })
-
-/** 
-async function translation(env, from, to, conten
-	return fetch(new URL(env.OPENAI_ENDPOINT), {
-	  method: "POST",
-	  headers: {
-		"Authorization": "Bearer ".concat(env.OPENAI_API_KEY),
-		"Content-Type": "application/json"
-	  },
-	  body: JSON.stringify({
-		model: "gpt-4o",
-		messages: [
-		  {
-			"role": "system",
-			"content": "You are an expert in " + from + "-" + to + " translations. Translate the content of user messages into " + to
-		  },
-		  {
-			"role": "user",
-			content
-		  }
-		],
-		response_format: {
-		  "type": "json_schema",
-		  "json_schema": {
-			"name": "text_translation",
-			"schema": {
-			  "type": "object",
-			  "properties": {
-				text: text(),
-				translation: text()
-			  },
-			  additionalProperties: false,
-			  required: ["text", "translation"]
-			},
-			"strict": true
-		  }
-		}
-	  })
-	
-**/
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {

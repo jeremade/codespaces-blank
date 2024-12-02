@@ -12,4 +12,4 @@ async function test() {
     return res.json()
 }
 
-await 
+(await test()).then(console.info)

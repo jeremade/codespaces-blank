@@ -18,7 +18,7 @@ const Translation = z.object({
 const TranslationRequest = z.object({
 	from: Iso.default("en"),
 	to: Iso.default("es"),
-	text: Text
+	text: Text.default("Siguiente (www.siguiente.com) is currently in a R&D phase.")
 })
 
 export default {

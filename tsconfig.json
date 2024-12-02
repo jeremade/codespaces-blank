@@ -3,9 +3,9 @@
 		/* Visit https://aka.ms/tsconfig.json to read more about this file */
 
 		/* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-		"target": "es2021",
+		"target": "es2022",
 		/* Specify a set of bundled library declaration files that describe the target runtime environment. */
-		"lib": ["es2021"],
+		"lib": ["es2022"],
 		/* Specify what JSX code is generated. */
 		"jsx": "react-jsx",
 
@@ -15,7 +15,7 @@
 		"moduleResolution": "Bundler",
 		/* Specify type package names to be included without being referenced in a source file. */
 		"types": [
-			"@cloudflare/workers-types/2023-07-01"
+			"@cloudflare/workers-types"
 		],
 		/* Enable importing .json files */
 		"resolveJsonModule": true,
@@ -23,7 +23,7 @@
 		/* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */
 		"allowJs": true,
 		/* Enable error reporting in type-checked JavaScript files. */
-		"checkJs": false,
+		"checkJs": true,
 
 		/* Disable emitting files from a compilation. */
 		"noEmit": true,
@@ -42,5 +42,5 @@
 		"skipLibCheck": true
 	},
 	"exclude": ["test"],
-	"include": ["worker-configuration.d.ts", "src/**/*.ts"]
+	"include": ["worker-configuration.d.ts", "src/**/*.ts", "src/**/*.mjs", "src/**/*.mjs.map"]
 }
